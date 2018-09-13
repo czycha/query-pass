@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "url-parse": "^1.2.0"
+    "url-parse": "^1.4.3"
   },
   "devDependencies": {
     "webpack": "^3.11.0"
