@@ -35,7 +35,11 @@ jQuery.fn.queryPass = function(keys, override) {
   }
   jQuery(this).each(function() {
     var $this = jQuery(this);
-    var href = new URL($this.attr('href'), true);
+    var _href = $this.attr('href');
+    if(!_href || _href[0] === '#') return true;
+    var href = new URL(_href, true);
+    // Only operate on browser URLs
+    if(href.protocol !== 'http:' || href.protocol !== 'https:') return true;
     var hrefQuery = href.query;
     href.set('query', override ? jQuery.extend({}, hrefQuery, urlQuery) : jQuery.extend({}, urlQuery, hrefQuery));
     $this.attr('href', href.href);
