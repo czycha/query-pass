@@ -39,7 +39,7 @@ jQuery.fn.queryPass = function(keys, override) {
     if(!_href || _href[0] === '#') return true;
     var href = new URL(_href, true);
     // Only operate on browser URLs
-    if(href.protocol !== 'http:' || href.protocol !== 'https:') return true;
+    if(href.protocol !== 'http:' && href.protocol !== 'https:') return true;
     var hrefQuery = href.query;
     href.set('query', override ? jQuery.extend({}, hrefQuery, urlQuery) : jQuery.extend({}, urlQuery, hrefQuery));
     $this.attr('href', href.href);
